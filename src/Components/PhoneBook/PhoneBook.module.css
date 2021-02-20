@@ -1,0 +1,17 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.submitButton {
+  margin-top: 30px;
+  width: 100px;
+}
+.label {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  width: 200px;
+  margin-top: 10px;
+}
