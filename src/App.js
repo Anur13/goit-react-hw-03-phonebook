@@ -15,14 +15,20 @@ class App extends Component {
     filter: '',
   };
   componentDidMount() {
-    if (this.state.contacts.length > 1) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    const newArray = JSON.parse(localStorage.getItem('contacts'));
+    console.log(newArray);
+    // console.log(this.state.contacts);
+    if (newArray !== null && newArray.length > 0) {
+      this.setState({ contacts: newArray });
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    if (prevProps.contacts !== this.state.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
   }
+
   formSubmitHandler = data => {
     const id = uuidv4();
     data.id = id;
