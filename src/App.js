@@ -16,12 +16,12 @@ class App extends Component {
   };
   componentDidMount() {
     if (this.state.contacts.length > 1) {
-      localStorage.setItem('contacts', this.state.contacts);
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
-    localStorage.setItem('contacts', this.state.contacts);
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
   }
   formSubmitHandler = data => {
     const id = uuidv4();
